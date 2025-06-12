@@ -2,10 +2,10 @@
 
 import "../styles/Home.css"
 import Header from '../components/Header/Header.jsx'
-import Main from "../components/Main/Main.jsx"
+
 
 function Home() {
- 
+
 
   return (
     <>
@@ -14,10 +14,10 @@ function Home() {
   {/*renderizar el Main*/}
   <Main />
   {/*renderizar el Footer*/}
-   
-   
-   </>
-  )
+
+
+</>
+  );
 }
 
 export default Home
