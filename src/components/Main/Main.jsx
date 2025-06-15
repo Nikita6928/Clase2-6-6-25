@@ -4,7 +4,7 @@ const Main = () => {
    //Simulando una lista de productos recibida desde una API//
    //Ahora voy a crear el array//
 
-   const products = [
+   const producto = [
       {
          nombre: "Bicicleta",
          precio: 1000,
@@ -59,17 +59,17 @@ const Main = () => {
 
             {
                /*El colback es una función que se ejecuta cada vez que pasa algo*/
-               products.map((products, index) => {
+               producto.map((producto, index) => {
                   return (
                      <>
                         <div className="products">
-                           <h2>Bicicleta</h2>
-                           <p>Precio:1000</p>
-                           <p>20 cambios, cuadro de aluminio,disponible en todos los rodados</p>
+                           <h2>{producto.nombre}</h2>
+                           <p>{producto.precio}</p>
+                           <p>{producto.descripcion}}</p>
                            <button>Comprar</button>
                         </div>
 
-                        <div className="products">
+                        {/*<div className="products">
                            <h2>Computadora</h2>
                            <p>Precio:3000</p>
                            <p>Windows 11 instalado, paquete office con licencia, 16 de menoria Ram</p>
@@ -81,7 +81,7 @@ const Main = () => {
                            <p>Precio:2000</p>
                            <p>Tapizado de eco-cuerina, altura regulable, fácil de limpiar</p>
                            <button>Comprar</button>
-                        </div>
+                        </div>*/}
                      </>
                   )
 
