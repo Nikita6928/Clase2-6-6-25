@@ -4,7 +4,27 @@ const Main =()=> {
     //Simulando una lista de productos recibida desde una API//
     //Ahora voy a crear el array//
 
-    const products
+    const products[ 
+       {
+        nombre:Bicicleta,
+        precio:1000,
+        descripcion: 20 cambios,cuadro de alumninio, disponible en todos los rodados,
+       },
+
+       {
+        nombre:Computadora
+        precio:3000,
+        descripcion:Windows 11 instalado, paquete office con licencia, 16 de menoria Ram
+       },
+
+       {
+        nombre:Silla gamer
+        precio:2000,
+        descripcion:Tapizado de eco-cuerina, altura regulable, fácil de limpiar
+       }
+
+       
+    ];                                                  
 
     return(
      <main>
