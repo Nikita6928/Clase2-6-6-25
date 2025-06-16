@@ -107,7 +107,7 @@ const Main = () => {
                            <h2>{producto.nombre}</h2>
                            <p>{producto.precio}</p>
                            <p>{producto.descripcion}</p>
-                           <p>{producto.descripcionCompleta}</p>
+                           <p><h3>Descripción Completa</h3>{producto.descripcionCompleta}</p>
                            <button>Comprar</button>
                         </div>
 
