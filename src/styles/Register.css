@@ -1,45 +1,45 @@
-#login-section h1 {
+#register-section h1 {
     font-size: 30px;
     margin-bottom: 10px;
     text-align: center;
 }
 
-#login-section p {
+#register-section p {
     color: gray;
     margin-bottom: 10px;
 }
 
-#login-section form {
+#register-section form {
     width: 50%;
     margin: auto;
     background-color: yellowgreen;
     padding: 20px;
 }
 
-#login-section form * {
+#register-section form * {
     display: block;
     width: 100%;
 }
 
-#login-section h1 {
+#register-section h1 {
     font-size: 30px;
     margin-bottom: 10px;
     text-align: center;
 }
 
-#login-section p {
+#register-section p {
     color: gray;
     margin-bottom: 10px;
 }
 
-#login-section form {
+#register-section form {
     width: 50%;
     margin: auto;
     background-color: yellowgreen;
     padding: 20px;
 }
 
-#login-section form * {
+#register-section form * {
     display: block;
     width: 100%;
 }

@@ -13,6 +13,9 @@ const Router = () => {
                 <Route path="/admin" element={<Dashboard />} />
                 <Route path="/registro" element={<Register />} />
                 <Route path="/login" element={<Login />} />
+                <Route path="*" element={<h4>No se puede mostrar la vista</h4>
+
+                } />
             </Routes>
         </BrowserRouter>
     )
