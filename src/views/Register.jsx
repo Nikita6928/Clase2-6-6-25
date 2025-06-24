@@ -26,23 +26,24 @@ const Register = () => {
     const handlePassword = (event) => {
         setPassword(event.target.value)
     }
-    <Layout>
-        <section id="register-section">
-            <h1>Regístrate</h1>
-            <form>
-                <label htmlFor="name">Ingresa tu nombre</label>
-                <input type="text" name="name" id="name" onChange={handleName} />
-                <label htmlFor="email">Correo electrónico</label>
-                <input type="email" name="email" id="email" onChange={handEmail} />
+    return (
+        <Layout>
+            <section id="register-section">
+                <h1>Regístrate</h1>
+                <form>
+                    <label htmlFor="name">Ingresa tu nombre</label>
+                    <input type="text" name="name" id="name" onChange={handleName} />
+                    <label htmlFor="email">Correo electrónico</label>
+                    <input type="email" name="email" id="email" onChange={handEmail} />
 
-                <label htmlFor="password">Contraseña:</label>
-                <input type="password" name="password" id="passwoord" onChange={handlePassword} />
-                <button>Registrarse</button>
-            </form>
+                    <label htmlFor="password">Contraseña:</label>
+                    <input type="password" name="password" id="passwoord" onChange={handlePassword} />
+                    <button>Registrarse</button>
+                </form>
 
-        </section>
-    </Layout>
-
+            </section>
+        </Layout>
+    )
 
 }
 export default Register

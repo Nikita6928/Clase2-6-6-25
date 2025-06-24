@@ -7,39 +7,49 @@ import { useState } from "react"
 
 const Login = () => {
 
-}
+    const [email, setEMail] = useState("")
+    const [passwoord, setPassword] = useState("")
+
+    const handleEmail = (event) => {
+        setEMail(event.target.value)
+    }
+    const handlePassword = (event) => {
+        setPassword(event.target.value)
+    }
 
 
-return (
-    /*
+
+    return (
+        /*
+            <Layout>
+                <h1>Login</h1>
+                <form>
+                    <label htmlFor="name="></label>
+                    <input type="text" name="name" placeholder="Ingresá tu nombre de usuario" />
+                    <button>Ingresar</button>
+                </form>
+            </Layout>
+     
+        </>*/
+
+
+
         <Layout>
-            <h1>Login</h1>
-            <form>
-                <label htmlFor="name="></label>
-                <input type="text" name="name" placeholder="Ingresá tu nombre de usuario" />
-                <button>Ingresar</button>
-            </form>
+            <section id="login-section">
+                <h1>Login</h1>
+                <form>
+                    <label htmlFor="email">Correo electrónico</label>
+                    <input type="email" name="email" id="email" onChange={handleEmail} />
+
+                    <label htmlFor="password">Contraseña:</label>
+                    <input type="password" name="password" id="passwoord" onChange={handlePassword} />
+                    <button>Ingresar</button>
+                </form>
+
+            </section>
         </Layout>
- 
-    </>*/
-
-
-
-    <Layout>
-        <section id="login-section">
-            <h1>Login</h1>
-            <form>
-                <label htmlFor="email">Correo electrónico</label>
-                <input type="email" name="email" id="email" />
-
-                <label htmlFor="password">Contraseña:</label>
-                <input type="password" name="password" id="passwoord" />
-                <button>Ingresar</button>
-            </form>
-
-        </section>
-    </Layout>
+    )
 }
-)
+
 
 export default Login
