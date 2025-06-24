@@ -6,33 +6,38 @@ import { useState } from "react"
 
 
 const Login = () => {
+    //Creo los estados para manejar el correo, nombre y clave
+    const [email, setEmail] = useState("")
+    const [password, setPassword] = useState("")
 
-    const [email, setEMail] = useState("")
-    const [passwoord, setPassword] = useState("")
+
+    /*Creo un estado para manejar el error en caso de
+    que en el input ingresar nombre o correo no se ingrese
+    el dato requerido. Ver si funciona así
+    const [error, setError] = useState(null)*/
+
 
     const handleEmail = (event) => {
-        setEMail(event.target.value)
+        setEmail(event.target.value)
     }
+    /*
+    const handleName = (event) => {
+        setName(event.target.value)  NO FUNCIONÓ 
+     }*/
     const handlePassword = (event) => {
         setPassword(event.target.value)
     }
+    /*  NO FUCIONÓ
+    if (!email || !name) {
+      setError("Debes ingresar uno de los dos datos, nombre o correo")
+    }*/
 
+    const nuevosDatos = { email, password }
 
-
+    console.log("datos ingresados:", nuevosDatos)
+    setEmail("")
+    setPassword("")
     return (
-        /*
-            <Layout>
-                <h1>Login</h1>
-                <form>
-                    <label htmlFor="name="></label>
-                    <input type="text" name="name" placeholder="Ingresá tu nombre de usuario" />
-                    <button>Ingresar</button>
-                </form>
-            </Layout>
-     
-        </>*/
-
-
 
         <Layout>
             <section id="login-section">
@@ -50,6 +55,4 @@ const Login = () => {
         </Layout>
     )
 }
-
-
 export default Login
