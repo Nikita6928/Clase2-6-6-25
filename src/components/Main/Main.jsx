@@ -6,10 +6,10 @@ const Main = () => {
 
    const producto = [
       {
-         nombre: "Bicicleta",
-         precio: 1000,
-         descripcion: " 20 cambios,cuadro de alumninio, disponible en todos los rodados",
-         descripcionCompleta: "Diseño aeródinamico, cuadro ligero,etc."
+         nombre: "Los Eteros del Iberá",
+         precio: 10000,
+         descripcion: " Para dos personas, con pensión completa, para 7 días y 6 noches",
+         descripcionCompleta: "Excursiones incluidas."
       },
 
       {
@@ -53,8 +53,8 @@ const Main = () => {
    return (
       <main>
          <section className="banner">
-            <h1>Bienvenidos a la tienda</h1>
-            <h2>Los mejores precios de la ciudad</h2>
+            <h1> Viajá por Argentina</h1>
+            <h2>El país de los 5 continentes</h2>
          </section>
 
          <section className="productsList">
