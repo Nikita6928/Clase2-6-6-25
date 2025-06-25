@@ -5,14 +5,20 @@
 }
 
 #login-section p {
-    color: gray;
+    color: rgb(213, 143, 143);
     margin-bottom: 10px;
+
+}
+
+label {
+    color: #ffacac;
+    font-weight: bold;
 }
 
 #login-section form {
     width: 50%;
     margin: auto;
-    background-color: yellowgreen;
+    background-color: rgb(123, 41, 50);
     padding: 20px;
 }
 
@@ -28,18 +34,30 @@
 }
 
 #login-section p {
-    color: gray;
+    color: rgb(155, 82, 82);
     margin-bottom: 10px;
 }
 
 #login-section form {
     width: 50%;
     margin: auto;
-    background-color: yellowgreen;
-    padding: 20px;
+    background-color: rgb(94, 8, 24);
+    padding: 30px;
 }
 
 #login-section form * {
     display: block;
     width: 100%;
+}
+
+#login-section form input,
+#login-section textarea {
+    padding: 5px;
+    margin: 10px;
+}
+
+button {
+    color: rgb(42, 27, 4);
+    font-weight: bold;
+
 }

@@ -30,13 +30,13 @@ const Login = () => {
     /*  NO FUCIONÓ
     if (!email || !name) {
       setError("Debes ingresar uno de los dos datos, nombre o correo")
-    }*/
+    }
 
     const nuevosDatos = { email, password }
 
     console.log("datos ingresados:", nuevosDatos)
     setEmail("")
-    setPassword("")
+    setPassword("")*/
     return (
 
         <Layout>
