@@ -8,27 +8,38 @@ const Main = () => {
       {
 
 
-
-         nombre: "Los Eteros del Iberá",
+         lugar: "Los Esteros del Iberá",
+         imagen: url("src/assets/paisaje.jpg"),
          precio: 10000,
          descripcion: " Para dos personas, con pensión completa, para 7 días y 6 noches",
          descripcionCompleta: "Excursiones incluidas."
       },
 
       {
-         nombre: "Computadora",
-         precio: 3000,
-         descripcion: "Windows 11 instalado, paquete office con licencia, 16 de menoria Ram",
-         descripcionCompleta: "Dispositivos de almacenamiento,...."
+         lugar: "El tren de las nubes",
+         imagen: url("src/assets/trenAlasNubes.jpg"),
+         precio: 15000,
+         descripcion: "Nunca viviste algo igual",
+         descripcionCompleta: "En las Termas, los viajeros pueden disfrutar de la tranquilidad y la intimidad, lejos del ruido y del ritmo estresante de las grandes ciudades, en una experiencia vinculada al bienestar y la salud, con todos los servicios necesarios para tener una excelente estadía."
       },
 
       {
-         nombre: "Silla gamer",
+
+         lugar: "Termas de Fiambalá",
+         imagen: url("src/assets/termasDeFiambala.jpg"),
          precio: 2000,
-         descripcion: "Tapizado de eco-cuerina, altura regulable, fácil de limpiar",
+         descripcion: "Es un viaje único y especial que combina sus servicios en dos tramos: Ruta Nacional N°51, con paradas fotográficas en puntos panorámicos, para luego embarcar en la mágica experiencia del Tren a las Nubes, que se manifiesta en todo su esplendor al arribar al imponente viaducto. ",
       },
 
       {
+
+         lugar: "Las leñas",
+         imagen: url("src/assets/lasLeñas.jfif"),
+         precio: 2000,
+         descripcion: "Es un viaje único y especial que combina sus servicios en dos tramos: Ruta Nacional N°51, con paradas fotográficas en puntos panorámicos, para luego embarcar en la mágica experiencia del Tren a las Nubes, que se manifiesta en todo su esplendor al arribar al imponente viaducto. ",
+      },
+
+      /*{
          nombre: "Carpa",
          precio: 2000,
          descripcion: "Para 4 personas, con cubre techo, soporta alertas rojas de tormetas",
@@ -48,7 +59,7 @@ const Main = () => {
          descripcion: "Es una máquina que crea objetos tridimensionales a partir de un diseño digital",
          descripcionCompleta: "Las impresoras 3D pueden utilizar una variedad de materiales, como plásticos ABS y PLA, resinas, metales, cerámicas y compuestos.",
 
-      }
+      }*/
 
 
    ];
@@ -70,13 +81,13 @@ const Main = () => {
                         <div className="products">
 
 
-                           <h3><img src="assets" />{producto.imagen}</h3>
-                           <h2>{producto.nombre}</h2>
+                           <img src={producto.imagen} />
+                           <h2>{producto.lugar}</h2>
                            <p>{producto.precio}</p>
                            <p>{producto.descripcion}</p>
                            <p><h3>Descripción Completa</h3>{producto.descripcionCompleta}</p>
                            <button>Comprar</button>
-                        </div>
+                        </div >
 
 
                      </>
@@ -86,7 +97,7 @@ const Main = () => {
 
             }
          </section>
-      </main>
+      </main >
 
    )
 
