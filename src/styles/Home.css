@@ -26,7 +26,6 @@ main {
 
 main .banner {
   min-height: 70vh;
-  background-image: url("src/assets/paisaje2.jpg");
   display: flex;
   flex-direction: column;
   align-items: center;

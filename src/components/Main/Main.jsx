@@ -10,60 +10,39 @@ const Main = () => {
 
          lugar: 1,
          nombre: "Los Esteros del Iberá",
-         imagen: url("src/assets/paisaje.jpg"),
+         imagen: "src/assets/losEsterosDelIbera.jpg",
          precio: 10000,
          descripcion: " Para dos personas, con pensión completa, para 7 días y 6 noches",
-         descripcionCompleta: "Excursiones incluidas."
+         descripcionCompleta: "Excursiones incluidas.",
       },
 
       {
          lugar: 2,
          nombre: "El tren de las nubes",
-         imagen: url("src/assets/trenAlasNubes.jpg"),
+         imagen: "src/assets/trenAlasNubes.jpg",
          precio: 15000,
          descripcion: "Nunca viviste algo igual",
-         descripcionCompleta: "En las Termas, los viajeros pueden disfrutar de la tranquilidad y la intimidad, lejos del ruido y del ritmo estresante de las grandes ciudades, en una experiencia vinculada al bienestar y la salud, con todos los servicios necesarios para tener una excelente estadía."
+         descripcionCompleta: "En las Termas, los viajeros pueden disfrutar de la tranquilidad y la intimidad, lejos del ruido y del ritmo estresante de las grandes ciudades, en una experiencia vinculada al bienestar y la salud, con todos los servicios necesarios para tener una excelente estadía.",
       },
 
       {
 
          lugar: 3,
          nombre: "Termas de Fiambalá",
-         imagen: url("src/assets/termasDeFiambala.jpg"),
+         imagen: "src/assets/termasDeFiambala.jpg",
          precio: 2000,
-         descripcion: "Es un viaje único y especial que combina sus servicios en dos tramos: Ruta Nacional N°51, con paradas fotográficas en puntos panorámicos, para luego embarcar en la mágica experiencia del Tren a las Nubes, que se manifiesta en todo su esplendor al arribar al imponente viaducto. ",
+         descripcion: "Es un viaje único y especial.",
+         descripcionCompleta: "combina sus servicios en dos tramos: Ruta Nacional N°51, con paradas fotográficas en puntos panorámicos, para luego embarcar en la mágica experiencia del Tren a las Nubes, que se manifiesta en todo su esplendor al arribar al imponente viaducto. ",
       },
 
       {
          lugar: 4,
          nombre: "Las leñas",
-         imagen: url("src/assets/lasLeñas.jfif"),
+         imagen: "src/assets/lasLeñas.jfif",
          precio: 2000,
-         descripcion: "Es un viaje único y especial que combina sus servicios en dos tramos: Ruta Nacional N°51, con paradas fotográficas en puntos panorámicos, para luego embarcar en la mágica experiencia del Tren a las Nubes, que se manifiesta en todo su esplendor al arribar al imponente viaducto. ",
+         descripcion: "En pleno corazón de la Cordillera de los Andes, en la provincia de Mendoza",
+         descripcionCompleta: " A tan sólo 1.200 km de Buenos Aires, se encuentra el centro de ski número 1 de América Latina: Las Leñas.",
       },
-
-      /*{
-         nombre: "Carpa",
-         precio: 2000,
-         descripcion: "Para 4 personas, con cubre techo, soporta alertas rojas de tormetas",
-         descripcionCompleta: "soporta vientos fuerte,....."
-      },
-
-      {
-         nombre: "Play station 10",
-         precio: 2500,
-         descripcion: "Con memoria interna de 1000 gb, etc",
-         descripcionCompleta: "Tiempos de carga muy rápidos gracias al SSD, .....",
-      },
-
-      {
-         nombre: "Impresora 3d",
-         precio: 2500,
-         descripcion: "Es una máquina que crea objetos tridimensionales a partir de un diseño digital",
-         descripcionCompleta: "Las impresoras 3D pueden utilizar una variedad de materiales, como plásticos ABS y PLA, resinas, metales, cerámicas y compuestos.",
-
-      }*/
-
 
    ];
 
@@ -84,7 +63,7 @@ const Main = () => {
                         <div className="products">
 
                            <h2>{producto.lugar}</h2>
-                           <img src={producto.imagen} />
+                           <img>{producto.imagen}</img>
                            <h2>{producto.nombre}</h2>
                            <p>{producto.precio}</p>
                            <p>{producto.descripcion}</p>
