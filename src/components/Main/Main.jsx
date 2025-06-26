@@ -8,7 +8,7 @@ const Main = () => {
       {
 
 
-         imagen: "paisaje2.jpg",
+
          nombre: "Los Eteros del Iberá",
          precio: 10000,
          descripcion: " Para dos personas, con pensión completa, para 7 días y 6 noches",
@@ -70,7 +70,7 @@ const Main = () => {
                         <div className="products">
 
 
-                           <h3><img src="assets/paisaje.jpg" />{producto.imagen}</h3>
+                           <h3><img src="assets" />{producto.imagen}</h3>
                            <h2>{producto.nombre}</h2>
                            <p>{producto.precio}</p>
                            <p>{producto.descripcion}</p>
