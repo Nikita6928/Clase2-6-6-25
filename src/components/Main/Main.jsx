@@ -6,6 +6,9 @@ const Main = () => {
 
    const producto = [
       {
+
+
+         imagen: "paisaje2.jpg",
          nombre: "Los Eteros del Iberá",
          precio: 10000,
          descripcion: " Para dos personas, con pensión completa, para 7 días y 6 noches",
@@ -56,47 +59,8 @@ const Main = () => {
             <h1> Viajá por Argentina</h1>
             <h2>El país de los 5 continentes</h2>
          </section>
-
          <section className="productsList">
-            {/*
-            <div className="products">
-               <h2>Bicicleta</h2>
-               <p>Precio:1000</p>
-               <p>20 cambios, cuadro de aluminio,disponible en todos los rodados</p>
-               <button>Comprar</button>
-            </div>
 
-            <div className="products">
-               <h2>Computadora</h2>
-               <p>Precio:3000</p>
-               <p>Windows 11 instalado, paquete office con licencia, 16 de menoria Ram</p>
-               <button>Comprar</button>
-            </div>
-
-            <div className="products">
-               <h2>Silla Gamer</h2>
-               <p>Precio:2000</p>
-               <p>Tapizado de eco-cuerina, altura regulable, fácil de limpiar</p>
-               <button>Comprar</button>
-            </div>
-            
-            <div className="products">
-                           <h2>Carpa</h2>
-                           <p>Precio:2000</p>
-                           <p>Para 4 personas, con cubre techo, soporta alertas rojas de tormetas </p>
-                           <button>Comprar</button>
-                        </div>
-
-                        <div className="products">
-                           <h2>Play station 10</h2>
-                           <p>Precio:2500</p>
-                           <p>Con memoria interna de 1000 gb, etc</p>
-                           <button>Comprar</button>
-                        </div>
-            
-            
-            */
-            }
 
             {
                /*El colback es una función que se ejecuta cada vez que pasa algo*/
@@ -104,6 +68,9 @@ const Main = () => {
                   return (
                      <>
                         <div className="products">
+
+
+                           <h3><img src="assets/paisaje.jpg" />{producto.imagen}</h3>
                            <h2>{producto.nombre}</h2>
                            <p>{producto.precio}</p>
                            <p>{producto.descripcion}</p>
