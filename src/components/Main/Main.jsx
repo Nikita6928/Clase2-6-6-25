@@ -8,7 +8,8 @@ const Main = () => {
       {
 
 
-         lugar: "Los Esteros del Iberá",
+         lugar: 1,
+         nombre: "Los Esteros del Iberá",
          imagen: url("src/assets/paisaje.jpg"),
          precio: 10000,
          descripcion: " Para dos personas, con pensión completa, para 7 días y 6 noches",
@@ -16,7 +17,8 @@ const Main = () => {
       },
 
       {
-         lugar: "El tren de las nubes",
+         lugar: 2,
+         nombre: "El tren de las nubes",
          imagen: url("src/assets/trenAlasNubes.jpg"),
          precio: 15000,
          descripcion: "Nunca viviste algo igual",
@@ -25,15 +27,16 @@ const Main = () => {
 
       {
 
-         lugar: "Termas de Fiambalá",
+         lugar: 3,
+         nombre: "Termas de Fiambalá",
          imagen: url("src/assets/termasDeFiambala.jpg"),
          precio: 2000,
          descripcion: "Es un viaje único y especial que combina sus servicios en dos tramos: Ruta Nacional N°51, con paradas fotográficas en puntos panorámicos, para luego embarcar en la mágica experiencia del Tren a las Nubes, que se manifiesta en todo su esplendor al arribar al imponente viaducto. ",
       },
 
       {
-
-         lugar: "Las leñas",
+         lugar: 4,
+         nombre: "Las leñas",
          imagen: url("src/assets/lasLeñas.jfif"),
          precio: 2000,
          descripcion: "Es un viaje único y especial que combina sus servicios en dos tramos: Ruta Nacional N°51, con paradas fotográficas en puntos panorámicos, para luego embarcar en la mágica experiencia del Tren a las Nubes, que se manifiesta en todo su esplendor al arribar al imponente viaducto. ",
@@ -80,13 +83,13 @@ const Main = () => {
                      <>
                         <div className="products">
 
-
-                           <img src={producto.imagen} />
                            <h2>{producto.lugar}</h2>
+                           <img src={producto.imagen} />
+                           <h2>{producto.nombre}</h2>
                            <p>{producto.precio}</p>
                            <p>{producto.descripcion}</p>
                            <p><h3>Descripción Completa</h3>{producto.descripcionCompleta}</p>
-                           <button>Comprar</button>
+                           <button>Comprar Paquete</button>
                         </div >
 
 
