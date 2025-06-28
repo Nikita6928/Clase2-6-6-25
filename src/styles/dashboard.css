@@ -33,7 +33,7 @@
 
 #admin-section form input,
 #admin-section textarea {
-    padding: 5px;
+    padding: 10px;
     margin: 10px;
     border-radius: 10px;
     border: none;
@@ -53,4 +53,10 @@
 #admin-section form button hover {
     background-color: #9acd32;
 
+}
+
+button:disabled {
+    background-color: dimgray;
+    color: linen;
+    opacity: 1;
 }

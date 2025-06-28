@@ -17,6 +17,7 @@ const Dashboard = () => {
     const [description, setDescription] = useState("")
     //Creo un estado, para manejar un error
     const [error, setError] = useState(null)
+    const [isDisabled, setIsDisabled] = useState(false)
 
 
     const handleName = (event) => {
@@ -36,9 +37,12 @@ const Dashboard = () => {
     usuario en la base de datos, asegurarse bien*/
     const handleSubmit = (event) => {
         event.preventDefault()
+        setError("")
         //Si no hay nombre o si no hay precio o si no hay description
         if (!name || !price || !description) {
             setError("Necesita completar los campos")
+
+            return
 
         }
         //Necesitas completar los campos
@@ -79,12 +83,12 @@ const Dashboard = () => {
                         <label htmlFor="description">Descripción del producto:</label>
                         <textarea name="description" id="description" onChange={handleDescription} value={description}></textarea>
 
-                        <button>Agregar producto</button>
+                        <button disabled={isDisabled} style={{ backgroundColor: isDisabled && "green", cursor: }}>Agregar producto</button>
                         {error && <p style={{ color: "red" }}>{error}</p>}
                     </form>
                 </section>
             </section>
-        </Layout>
+        </Layout >
 
     )
 }

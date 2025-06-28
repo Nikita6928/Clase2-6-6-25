@@ -1,5 +1,6 @@
 import './Main.css'
 
+
 const Main = () => {
    //Simulando una lista de productos recibida desde una API//
    //Ahora voy a crear el array//
@@ -10,7 +11,7 @@ const Main = () => {
 
          lugar: 1,
          nombre: "Los Esteros del Iberá",
-         imagen: "src/assets/losEsterosDelIbera.jpg",
+         imagen: "",
          precio: 10000,
          descripcion: " Para dos personas, con pensión completa, para 7 días y 6 noches",
          descripcionCompleta: "Excursiones incluidas.",
