@@ -64,7 +64,6 @@ const Main = () => {
                         <div className="products">
 
                            <h2>{producto.lugar}</h2>
-                           <img>{producto.imagen}</img>
                            <h2>{producto.nombre}</h2>
                            <p>{producto.precio}</p>
                            <p>{producto.descripcion}</p>

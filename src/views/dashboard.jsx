@@ -6,14 +6,11 @@ import Footer from "../components/Footer/Footer"*/
 
 import Layout from "../components/Layout/Layout"
 import "../styles/Dashboard.css"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 const Dashboard = () => {
     const [name, setName] = useState("")
-    /*Prefiero dejar el valor vacio a price, no me resulta cómodo al tener que
-    eliminar el cero y cargar un valor que empieze distinto. Voy a tener que poner cero, me trae
-    inconvenientes, xq?, ver xq?*/
-    const [price, setPrice] = useState(0) //No me convence ese cero como usuaria
+    const [price, setPrice] = useState(0)
     const [description, setDescription] = useState("")
     //Creo un estado, para manejar un error
     const [error, setError] = useState(null)
@@ -23,7 +20,8 @@ const Dashboard = () => {
     const handleName = (event) => {
         setName(event.target.value)
     }
-    /*El manejador del precio*/
+
+    // El manejador del precio
     const handlePrice = (event) => {
         setPrice(Number(event.target.value))
     }
@@ -41,7 +39,10 @@ const Dashboard = () => {
         //Si no hay nombre o si no hay precio o si no hay description
         if (!name || !price || !description) {
             setError("Necesita completar los campos")
-
+            useEffect(() => { }, [nombre, Precio, description])
+            if (name && price && description) {
+                setIsDisabled(false)
+            }
             return
 
         }
@@ -83,8 +84,8 @@ const Dashboard = () => {
                         <label htmlFor="description">Descripción del producto:</label>
                         <textarea name="description" id="description" onChange={handleDescription} value={description}></textarea>
 
-                        <button disabled={isDisabled} style={{ backgroundColor: isDisabled && "green", cursor: }}>Agregar producto</button>
-                        {error && <p style={{ color: "red" }}>{error}</p>}
+                        <button disabled={isDisabled} style={{ backgroundColor: isDisabled && "green", cursor: isDisabled && "not-allowed" }}>Agregar producto</button>
+                        {error && <p style={{ color: green }}>{error}</p>}
                     </form>
                 </section>
             </section>
