@@ -21,7 +21,7 @@ header nav ul li a:hover {
 }
 
 main {
-  background-color: rgb(234, 174, 61);
+  background-color: rgb(218, 137, 25);
 }
 
 main .banner {
@@ -66,7 +66,7 @@ main .productsList {
 }
 
 footer {
-  background-color: turquoise;
+  background-color: rgb(182, 140, 43);
   padding: 20 px;
   text-align: center;
   font-weight: 700;

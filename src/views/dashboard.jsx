@@ -85,7 +85,7 @@ const Dashboard = () => {
                         <textarea name="description" id="description" onChange={handleDescription} value={description}></textarea>
 
                         <button disabled={isDisabled} style={{ backgroundColor: isDisabled && "green", cursor: isDisabled && "not-allowed" }}>Agregar producto</button>
-                        {error && <p style={{ color: green }}>{error}</p>}
+                        {error && <p style={{ color: "black" }}>{error}</p>}
                     </form>
                 </section>
             </section>

@@ -1,6 +1,7 @@
 #admin-section {
     padding: 20px;
     min-height: 100vh;
+    background-color: rgb(225, 194, 58);
 }
 
 #admin-section h1 {
@@ -10,25 +11,27 @@
 }
 
 #admin-section p {
-    color: gray;
+    color: rgb(55, 37, 4);
     margin-bottom: 10px;
     text-align: center;
+    font-weight: bold;
 }
 
 #admin-section form {
     width: 50%;
     margin: auto;
-    background-color: yellowgreen;
+    background-color: rgb(202, 162, 20);
     padding: 20px;
 }
 
 #admin-section form * {
     display: block;
-    width: 100%;
+    width: 90%;
 }
 
 #admin-section form label {
     font-weight: bold;
+    color: #000;
 }
 
 #admin-section form input,
@@ -37,16 +40,16 @@
     margin: 10px;
     border-radius: 10px;
     border: none;
-    border: 1px solid gray;
+    border: 1px solid rgb(209, 102, 36);
 }
 
 #admin-section form button {
     margin-top: 10px;
     border: none;
     padding: 8px 16px;
-    background-color: rgb(41, 58, 7);
+    background-color: rgb(189, 158, 34);
     border-radius: 10px;
-    color: white;
+    color: rgb(208, 185, 119);
     cursor: pointer;
 }
 
@@ -56,21 +59,26 @@
 }
 
 button:disabled {
-    background-color: dimgray;
-    color: linen;
+    background-color: rgb(67, 156, 16);
+    color: rgb(58, 71, 50);
     opacity: 1;
+}
+
+button {
+    color: #000;
+    font-weight: bold;
 }
 
 form button {
     background-color: rgb(50, 167, 110);
     border-radius: 10px;
-    color: aqua;
+    color: rgb(56, 49, 19);
     cursor: pointer;
 }
 
 button:disabled,
 form button:hover:disabled {
-    background-color: rgb(139, 89, 28);
+    background-color: rgb(110, 69, 18);
     cursor: not-allowed;
     opacity: 0.6;
 }
