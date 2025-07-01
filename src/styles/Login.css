@@ -1,3 +1,7 @@
+body {
+    background-color: rgb(222, 211, 86);
+}
+
 #login-section h1 {
     font-size: 30px;
     margin-bottom: 10px;
@@ -5,12 +9,12 @@
 }
 
 #login-section p {
-    color: rgb(213, 143, 143);
+    color: rgb(228, 162, 97);
     margin-bottom: 10px;
 }
 
 label {
-    color: #ffacac;
+    color: #ad6420;
     font-weight: bold;
 }
 
@@ -33,14 +37,14 @@ label {
 }
 
 #login-section p {
-    color: rgb(155, 82, 82);
+    color: rgb(217, 208, 170);
     margin-bottom: 10px;
 }
 
 #login-section form {
     width: 50%;
     margin: auto;
-    background-color: rgb(94, 8, 24);
+    background-color: rgb(201, 171, 70);
     padding: 30px;
 }
 
@@ -55,8 +59,6 @@ label {
     margin: 10px;
 }
 
-button {
-    color: rgb(42, 27, 4);
-    font-weight: bold;
-
+form button {
+    background-color: rgb(166, 146, 58)
 }

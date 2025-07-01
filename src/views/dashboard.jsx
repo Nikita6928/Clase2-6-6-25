@@ -31,8 +31,7 @@ const Dashboard = () => {
     }
 
 
-    /*creo que esta función, guarda los datos ingresados por el 
-    usuario en la base de datos, asegurarse bien*/
+    /*creo que esta función, guarda los datos ingresados por el*/
     const handleSubmit = (event) => {
         event.preventDefault()
         setError("")
@@ -84,8 +83,8 @@ const Dashboard = () => {
                         <label htmlFor="description">Descripción del producto:</label>
                         <textarea name="description" id="description" onChange={handleDescription} value={description}></textarea>
 
-                        <button disabled={isDisabled} style={{ backgroundColor: isDisabled && "green", cursor: isDisabled && "not-allowed" }}>Agregar producto</button>
-                        {error && <p style={{ color: "black" }}>{error}</p>}
+                        <button disabled={isDisabled} style={{ backgroundColor: isDisabled && "brown", cursor: isDisabled && "not-allowed" }}>Agregar producto</button>
+                        {error && <p style={{ color: "brown" }}>{error}</p>}
                     </form>
                 </section>
             </section>

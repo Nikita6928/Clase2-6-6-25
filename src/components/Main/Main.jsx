@@ -69,8 +69,8 @@ const Main = () => {
 
                            <h2>{producto.nombre}</h2>
                            <img src={producto.imagen} alt={"imagen del producto" + producto.imagen} />
-                           <p>{producto.precio}</p>
-                           <p>{producto.descripcion}</p>
+                           <p><h2>Precio con descuento 20 % -</h2>{producto.precio}</p>
+                           <p><h3>Descripción</h3>{producto.descripcion}</p>
                            <p><h3>Descripción Completa</h3>{producto.descripcionCompleta}</p>
                            <button>Comprar Paquete</button>
                         </div >

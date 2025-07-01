@@ -20,23 +20,11 @@ const Login = () => {
     const handleEmail = (event) => {
         setEmail(event.target.value)
     }
-    /*
-    const handleName = (event) => {
-        setName(event.target.value)  NO FUNCIONÓ 
-     }*/
+
     const handlePassword = (event) => {
         setPassword(event.target.value)
     }
-    /*  NO FUCIONÓ
-    if (!email || !name) {
-      setError("Debes ingresar uno de los dos datos, nombre o correo")
-    }
 
-    const nuevosDatos = { email, password }
-
-    console.log("datos ingresados:", nuevosDatos)
-    setEmail("")
-    setPassword("")*/
     return (
 
         <Layout>
