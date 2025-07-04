@@ -2,7 +2,9 @@ import Header from "../components/Header/Header"
 import Footer from "../components/Footer/Footer"
 import Layout from "../components/Layout/Layout"
 import "../styles/Login.css"
-import { useState } from "react"
+import { useEffect, useState } from "react"
+
+//import { useState, useEffect } from "react"
 
 
 const Login = () => {
@@ -10,11 +12,6 @@ const Login = () => {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
 
-
-    /*Creo un estado para manejar el error en caso de
-    que en el input ingresar nombre o correo no se ingrese
-    el dato requerido. Ver si funciona así
-    const [error, setError] = useState(null)*/
 
 
     const handleEmail = (event) => {

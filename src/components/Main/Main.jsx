@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react'
 import './Main.css'
 
 
@@ -7,8 +8,6 @@ const Main = () => {
 
    const producto = [
       {
-
-
 
          nombre: "Los Esteros del Iberá",
          imagen: "src/assets/imagenes/losEsterosDelIbera.jfif",
@@ -44,8 +43,12 @@ const Main = () => {
          descripcion: "En pleno corazón de la Cordillera de los Andes, en la provincia de Mendoza",
          descripcionCompleta: " A tan sólo 1.200 km de Buenos Aires, se encuentra el centro de ski número 1 de América Latina: Las Leñas.",
       },
+   ]
 
-   ];
+
+
+
+
 
    return (
       <main>
@@ -54,25 +57,20 @@ const Main = () => {
             <h2>El país de los 5 continentes</h2>
          </section>
          <section className="productsList">
-
-
             {
-               /*Guardo aquí este archivo, porque no me deja comentarlo dentro del return
-              <img src={producto.imagen} alt={"imagen del producto" + producto.nombre} id={producto.id} />*/
-               /*El colback es una función que se ejecuta cada vez que pasa algo*/
+
                producto.map((producto, index) => {
                   return (
                      <>
                         <div className="products">
-
-
 
                            <h2>{producto.nombre}</h2>
                            <img src={producto.imagen} alt={"imagen del producto" + producto.imagen} />
                            <p><h2>Precio con descuento 20 % -</h2>{producto.precio}</p>
                            <p><h3>Descripción</h3>{producto.descripcion}</p>
                            <p><h3>Descripción Completa</h3>{producto.descripcionCompleta}</p>
-                           <button>Comprar Paquete</button>
+                           <p><button>Comprar Paquete</button></p>
+
                         </div >
 
 
