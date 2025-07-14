@@ -1,3 +1,22 @@
+
 Nikita@DESKTOP-I4BGJD6 MINGW64 ~/Desktop/PracticoModulo2React (master)
+$ git push origin master
+Enumerating objects: 10, done.
+Counting objects: 100% (10/10), done.
+Delta compression using up to 4 threads
+Compressing objects: 100% (6/6), done.
+Writing objects: 100% (6/6), 653 bytes | 653.00 KiB/s, done.
+Total 6 (delta 3), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (3/3), completed with 3 local objects.
+To https://github.com/Nikita6928/Clase2-6-6-25.git
+   16a4c6b..6f1a938  master -> master
+
+Nikita@DESKTOP-I4BGJD6 MINGW64 ~/Desktop/PracticoModulo2React (master)
+$
+
+
+
+
+
 
 https://github.com/Nikita6928/PracticoModulo2React

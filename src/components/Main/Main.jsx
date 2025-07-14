@@ -1,9 +1,28 @@
 import { useEffect, useState } from 'react'
 import './Main.css'
+import { RouterProvider } from 'react-router-dom'
 
 
 const Main = () => {
+   //Creo una función asincrónica.  Fetching significa que trae el producto
+   //Async, significa que traerá los productos cuando estén disponibles
+   /*Una función async me devuelve un resultado, puede ser positivo o negativo
+   pero no deja de ser un resultado, esperado o no*/
+   const fetchingProducts = async () => {
+      const respuesta = await fetch("https://marcoguoli.com/galleries/fotografia-paisajes-argentina/")
+      console.log(respuesta)
+   }
+   useEffect(() => {
+      fetchingProducts()
+   }, [])  /*Al tener el array vacío, el código se ejecuta una sola vez, si no se agrega
+   el Array, el código se ejecutará infinitamente.  El array es la segunda condición que 
+   pide el useEffect*/
+
    //Simulando una lista de productos recibida desde una API//
+
+   //Simulación del usuario conectado
+   const { user, setUser } = useState(false)
+
    //Ahora voy a crear el array//
 
    const producto = [
@@ -45,11 +64,6 @@ const Main = () => {
       },
    ]
 
-
-
-
-
-
    return (
       <main>
          <section className="banner">
@@ -69,6 +83,13 @@ const Main = () => {
                            <p><h2>Precio con descuento 20 % -</h2>{producto.precio}</p>
                            <p><h3>Descripción</h3>{producto.descripcion}</p>
                            <p><h3>Descripción Completa</h3>{producto.descripcionCompleta}</p>
+                           {
+                              user && <div className='user_buttons'>
+                                 <button>Actualizar</button>
+                                 <button>Borrar</button>
+                              </div>
+                           }
+
                            <p><button>Comprar Paquete</button></p>
 
                         </div >
