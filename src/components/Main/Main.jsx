@@ -10,6 +10,8 @@ const Main = () => {
    pero no deja de ser un resultado, esperado o no*/
    const fetchingProducts = async () => {
       const respuesta = await fetch("https://marcoguoli.com/galleries/fotografia-paisajes-argentina/")
+      /*Al abrir en console, en inspeccionar, apareció el mensaje de "failed to fetch" tb significa que se
+      obtuvo un resultado, en este caso negativo, pero un resultado en fin*/
       console.log(respuesta)
    }
    useEffect(() => {
@@ -33,6 +35,7 @@ const Main = () => {
          precio: 10000,
          descripcion: " Para dos personas, con pensión completa, para 7 días y 6 noches",
          descripcionCompleta: "Excursiones incluidas.",
+         sku: "esterIb-1"
       },
 
       {
@@ -42,6 +45,7 @@ const Main = () => {
          precio: 15000,
          descripcion: "Nunca viviste algo igual",
          descripcionCompleta: "En las Termas, los viajeros pueden disfrutar de la tranquilidad y la intimidad, lejos del ruido y del ritmo estresante de las grandes ciudades, en una experiencia vinculada al bienestar y la salud, con todos los servicios necesarios para tener una excelente estadía.",
+         sku: "treNub-2",
       },
 
       {
@@ -52,6 +56,7 @@ const Main = () => {
          precio: 2000,
          descripcion: "Es un viaje único y especial.",
          descripcionCompleta: "combina sus servicios en dos tramos: Ruta Nacional N°51, con paradas fotográficas en puntos panorámicos, para luego embarcar en la mágica experiencia del Tren a las Nubes, que se manifiesta en todo su esplendor al arribar al imponente viaducto. ",
+         sku: "terFiam-3",
       },
 
       {
@@ -61,6 +66,7 @@ const Main = () => {
          precio: 2000,
          descripcion: "En pleno corazón de la Cordillera de los Andes, en la provincia de Mendoza",
          descripcionCompleta: " A tan sólo 1.200 km de Buenos Aires, se encuentra el centro de ski número 1 de América Latina: Las Leñas.",
+         sku: "lasle-4",
       },
    ]
 
