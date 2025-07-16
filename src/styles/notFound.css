@@ -1,6 +1,4 @@
- h2 {
-     background-image: url("src/imagenes/notfound.css");
-     text-align: center;
-     font-size: 30px;
-     font-weight: bold;
+ .content-layout {
+     background-image: url("src/assets/imagenes/notfound.jfif");
+
  }
