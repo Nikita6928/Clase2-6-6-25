@@ -3,6 +3,7 @@ import Home from "../views/Home"
 import Dashboard from "../views/Dashboard"
 import Register from "../views/Register"
 import Login from "../views/Login"
+import NotFound from "../views/notFound"
 
 /*Crear un componente que valide que vista quiere ver el usuario */
 const Router = () => {
@@ -13,9 +14,9 @@ const Router = () => {
                 <Route path="/admin" element={<Dashboard />} />
                 <Route path="/registro" element={<Register />} />
                 <Route path="/login" element={<Login />} />
-                <Route path="*" element={<h4>No se puede mostrar la vista</h4>
+                <Route path="*" element={<NotFound />} />
 
-                } />
+
             </Routes>
         </BrowserRouter>
     )
