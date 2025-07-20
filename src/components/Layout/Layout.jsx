@@ -1,7 +1,7 @@
 import Header from "../Header/Header"
 import Footer from "../Footer/Footer"
 import "./Layout.css"
-<Layout></Layout>
+
 
 const Layout = (props) => {
     return (

@@ -1,4 +1,6 @@
  .content-layout {
      background-image: url("src/assets/imagenes/notfound.jfif");
-
+     background-repeat: no-repeat;
+     background-attachment: fixed;
+     background-size: cover;
  }

@@ -7,6 +7,8 @@ import Footer from "../components/Footer/Footer"*/
 import Layout from "../components/Layout/Layout"
 import "../styles/Dashboard.css"
 import { useEffect, useState } from "react"
+import { db } from "../config/firebase"
+import { collection, addDoc } from "firebase/firestore"
 
 const Dashboard = () => {
     const [name, setName] = useState("")
@@ -15,7 +17,19 @@ const Dashboard = () => {
     //Creo un estado, para manejar un error
     const [error, setError] = useState(null)
     const [isDisabled, setIsDisabled] = useState(false)
+    const [message, setMessage] = useState("")
+    //Creo el estado para el nuevo producto
+    const productosRef = collection(db, "productos")
 
+    const createProduct = async (productData) => {
+        try {
+            const productosRef = await addDoc(productosRef, productData)
+            return productosRef
+        } catch (error) {
+            console.log("Error al cargar el producto")
+
+        }
+    }
 
     const handleName = (event) => {
         setName(event.target.value)
@@ -26,42 +40,54 @@ const Dashboard = () => {
         setPrice(Number(event.target.value))
     }
     /*El manejador de la descripción*/
-    const handleDescription = (event) => {
+    const handleDescription = async (event) => {
         setDescription(event.target.value)
     }
 
 
     /*creo que esta función, guarda los datos ingresados por el*/
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         event.preventDefault()
         setError("")
-        //Si no hay nombre o si no hay precio o si no hay description
-        if (!name || !price || !description) {
-            setError("Necesita completar los campos")
-            useEffect(() => { }, [nombre, Precio, description])
-            if (name && price && description) {
-                setIsDisabled(false)
-            }
-            return
-
-        }
-        //Necesitas completar los campos
-
-        const newProduct = { name, price, description }
-
-        //Guardar en la base de datos al nuevo producto
-        console.log("Nuevo producto:", newProduct)
-
-
-        //Tomo el setName y lo limpio
-        setName("")
-        //Tomo el setPrice y lo limpio
-        setPrice(0)
-        //Tomo el setDescription y tb lo limpio
-        setDescription("")
-        //Se limpia todo menos ese cerito
-
     }
+    //Si no hay nombre o si no hay precio o si no hay description
+    if (!name || !price || !description) {
+        setError("Necesita completar los campos")
+        return
+    }
+    //Valido que el nombre no tenga menos de dos caracteres
+    if (name.length < 2) {
+        setError("El nombre debe tener un largo mínimo de 2 caracteres.")
+        return
+    }
+    //Valido el valor que el precio sea mayor de cero
+    if (price < 0) {
+        setError("debes agregar un precio mayor a 0")
+        return
+    }
+    useEffect(() => { }, [name, price, description])
+    if (name && price && description) {
+        setIsDisabled(false)
+    }
+
+
+    const newProduct = { name, price, description }
+    //Guardar en la base de datos al nuevo producto
+    createProduct(newProduct)
+    /*console.log("Nuevo producto:", newProduct)
+    setProductos([...productosRef, newProduct])
+    localStorage.setItem("productos", JSON.stringify([...productos, newProduct]))*/
+
+
+    //Tomo el setName y lo limpio
+    setName("")
+    //Tomo el setPrice y lo limpio
+    setPrice(0)
+    //Tomo el setDescription y tb lo limpio
+    setDescription("")
+
+
+
 
     return (
 
@@ -85,10 +111,11 @@ const Dashboard = () => {
 
                         <button disabled={isDisabled} style={{ backgroundColor: isDisabled && "brown", cursor: isDisabled && "not-allowed" }}>Agregar producto</button>
                         {error && <p style={{ color: "brown" }}>{error}</p>}
+                        {message && <p style={{ color: green }}>{message}</p>}
                     </form>
                 </section>
             </section>
-        </Layout >
+        </Layout>
 
     )
 }

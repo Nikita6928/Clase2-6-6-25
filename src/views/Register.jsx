@@ -50,6 +50,7 @@ const Register = () => {
                 <form>
                     <label htmlFor="name">Ingresa tu nombre</label>
                     <input type="text" name="name" id="name" onChange={handleName} />
+                    <label htmlFor="surname">Ingresa tu apellido</label>
                     <input type="text" name="name" id="surname" onChange={handleSurname} />
                     <label htmlFor="email">Correo electrónico</label>
                     <input type="email" name="email" id="email" onChange={handleEmail} />
