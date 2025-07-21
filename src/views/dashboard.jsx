@@ -11,6 +11,8 @@ import { db } from "../config/firebase"
 import { collection, addDoc } from "firebase/firestore"
 
 const Dashboard = () => {
+
+
     const [name, setName] = useState("")
     const [price, setPrice] = useState(0)
     const [description, setDescription] = useState("")
@@ -96,36 +98,35 @@ const Dashboard = () => {
                 setIsDisabled(false)
 
         },)
-
-        return (
-
-            <Layout>
-                <section id="admin-section">
-                    <h1>Panel de administración</h1>
-                    <p>Aquí puedes administrar todos tus productos.  Puedes agregar, modificar o borrar
-                        lo que deseés
-                    </p>
-
-                    <section className="admin-form-section">
-                        <form onSubmit={handleSubmit}>
-                            <label htmlFor="name">Nombre del producto:</label>
-                            <input type="text" name="name" id="name" onChange={handleName} value={name} />
-
-                            <label htmlFor="price">Precio del producto:</label>
-                            <input type="number" name="price" id="price" onChange={handlePrice} value={price} />
-
-                            <label htmlFor="description">Descripción del producto:</label>
-                            <textarea name="description" id="description" onChange={handleDescription} value={description}></textarea>
-
-                            <button disabled={isDisabled} style={{ backgroundColor: isDisabled && "green", cursor: isDisabled && "not-allowed" }}>Agregar producto</button>
-                            {error && <p style={{ color: "brown" }}>{error}</p>}
-
-                        </form>
-                    </section>
-                </section>
-            </Layout>
-
-        )
     }
+    return (
+
+        <Layout>
+            <section id="admin-section">
+                <h1>Panel de administración</h1>
+                <p>Aquí puedes administrar todos tus productos.  Puedes agregar, modificar o borrar
+                    lo que deseés
+                </p>
+
+                <section className="admin-form-section">
+                    <form onSubmit={handleSubmit}>
+                        <label htmlFor="name">Nombre del producto:</label>
+                        <input type="text" name="name" id="name" onChange={handleName} value={name} />
+
+                        <label htmlFor="price">Precio del producto:</label>
+                        <input type="number" name="price" id="price" onChange={handlePrice} value={price} />
+
+                        <label htmlFor="description">Descripción del producto:</label>
+                        <textarea name="description" id="description" onChange={handleDescription} value={description}></textarea>
+
+                        <button disabled={isDisabled} style={{ backgroundColor: isDisabled && "green", cursor: isDisabled && "not-allowed" }}>Agregar producto</button>
+                        {error && <p style={{ color: "brown" }}>{error}</p>}
+
+                    </form>
+                </section>
+            </section>
+        </Layout>
+
+    )
 }
 export default Dashboard
