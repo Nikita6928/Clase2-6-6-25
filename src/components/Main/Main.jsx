@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import './Main.css'
 import { RouterProvider } from 'react-router-dom'
+import { collection, getDocs } from 'firebase/firestore'
 
 
 const Main = () => {
@@ -9,10 +10,7 @@ const Main = () => {
    /*Una función async me devuelve un resultado, puede ser positivo o negativo
    pero no deja de ser un resultado, esperado o no*/
    const fetchingProducts = async () => {
-      const respuesta = await fetch("https://marcoguoli.com/galleries/fotografia-paisajes-argentina/")
-      /*Al abrir en console, en inspeccionar, apareció el mensaje de "failed to fetch" tb significa que se
-      obtuvo un resultado, en este caso negativo, pero un resultado en fin*/
-      console.log(respuesta)
+
    }
    useEffect(() => {
       fetchingProducts()
