@@ -1,16 +1,23 @@
 import { useEffect, useState } from 'react'
 import './Main.css'
-import { RouterProvider } from 'react-router-dom'
+import { db } from "../../config/firebase"
 import { collection, getDocs } from 'firebase/firestore'
 
 
 const Main = () => {
+
+   const [productos, setProductos] = useState(false)
+   const [error, setError] = useState(null)
+   const [user, setUser] = useState("")
    //Creo una función asincrónica.  Fetching significa que trae el producto
    //Async, significa que traerá los productos cuando estén disponibles
    /*Una función async me devuelve un resultado, puede ser positivo o negativo
    pero no deja de ser un resultado, esperado o no*/
    const fetchingProducts = async () => {
-
+      const productosRef = collection(db, "productos")
+      const snapshot = await getDocs(productosRef)
+      const docs = snapshot.docs.map((doc) => doc.data())
+      setProductos(docs)
    }
    useEffect(() => {
       fetchingProducts()
@@ -20,8 +27,6 @@ const Main = () => {
 
    //Simulando una lista de productos recibida desde una API//
 
-   //Simulación del usuario conectado
-   const { user, setUser } = useState(false)
 
    //Ahora voy a crear el array//
 
