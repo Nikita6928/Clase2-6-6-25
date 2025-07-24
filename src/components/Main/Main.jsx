@@ -13,14 +13,14 @@ const Main = () => {
    //Async, significa que traerá los productos cuando estén disponibles
    /*Una función async me devuelve un resultado, puede ser positivo o negativo
    pero no deja de ser un resultado, esperado o no*/
-   const fetchingProducts = async () => {
+   const fetchingProduct = async () => {
       const productosRef = collection(db, "productos")
       const snapshot = await getDocs(productosRef)
       const docs = snapshot.docs.map((doc) => doc.data())
       setProductos(docs)
    }
    useEffect(() => {
-      fetchingProducts()
+      fetchingProduct()
    }, [])  /*Al tener el array vacío, el código se ejecuta una sola vez, si no se agrega
    el Array, el código se ejecutará infinitamente.  El array es la segunda condición que 
    pide el useEffect*/
@@ -32,7 +32,7 @@ const Main = () => {
 
    const producto = [
       {
-
+         id: 1,
          nombre: "Los Esteros del Iberá",
          imagen: "src/assets/imagenes/losEsterosDelIbera.jfif",
          precio: 10000,
