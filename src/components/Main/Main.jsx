@@ -6,7 +6,7 @@ import { collection, getDocs } from 'firebase/firestore'
 
 const Main = () => {
 
-   const [productos, setProductos] = useState(false)
+   const [productos, setProductos] = useState("")
    const [error, setError] = useState(null)
    const [user, setUser] = useState("")
    //Creo una función asincrónica.  Fetching significa que trae el producto
@@ -15,6 +15,7 @@ const Main = () => {
    pero no deja de ser un resultado, esperado o no*/
    const fetchingProduct = async () => {
       const productosRef = collection(db, "productos")
+
       const snapshot = await getDocs(productosRef)
       const docs = snapshot.docs.map((doc) => doc.data())
       setProductos(docs)

@@ -19,10 +19,11 @@ const Dashboard = () => {
     //Creo un estado, para manejar un error
     const [error, setError] = useState(null)
     const [isDisabled, setIsDisabled] = useState(false)
-
+    const [producto, setProducto] = useState(JSON.parse(localStorage.getItem("productos")) ||
+        [])
 
     //Referencia a la colección de productos en firestore
-    const productosRef = collection(db, "productos")
+    const productosRef = collection(db, "producto")
 
     //Función para agregar un producto en firestore
     const createProduct = async (productData) => {
@@ -87,17 +88,20 @@ const Dashboard = () => {
         setPrice(0)
         //Tomo el setDescription y tb lo limpio
         setDescription("")
-
-
-
-        useEffect(() => {
-            [name, price, description]
-
-            if (name && price && description)
-                setIsDisabled(false)
-
-        },)
     }
+
+    //CORREGIR URGENTE
+    useEffect(() => {
+
+        if (name && price && description) {
+            setIsDisabled(false)
+        } else {
+            setIsDisabled(true)
+        }
+
+
+    }, [name, price, description])
+
     return (
 
         <Layout>
@@ -128,4 +132,5 @@ const Dashboard = () => {
 
     )
 }
+
 export default Dashboard
