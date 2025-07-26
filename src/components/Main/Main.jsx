@@ -87,7 +87,7 @@ const Main = () => {
          <section className="productsList">
             {
 
-               productos.map((producto, index) => {
+               producto.map((producto, index) => {
                   return (
                      <>
 
