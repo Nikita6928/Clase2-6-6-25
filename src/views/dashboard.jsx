@@ -12,15 +12,14 @@ import { collection, addDoc, doc } from "firebase/firestore"
 
 const Dashboard = () => {
 
-
+    console.log("Renderizando Dashboard")
     const [name, setName] = useState("")
     const [price, setPrice] = useState(0)
     const [description, setDescription] = useState("")
     //Creo un estado, para manejar un error
     const [error, setError] = useState(null)
     const [isDisabled, setIsDisabled] = useState(false)
-    const [producto, setProducto] = useState(JSON.parse(localStorage.getItem("productos")) ||
-        [])
+    const [message, setMessage] = useState("")
 
     //Referencia a la colección de productos en firestore
     const productosRef = collection(db, "producto")
@@ -45,7 +44,7 @@ const Dashboard = () => {
         setPrice(Number(event.target.value))
     }
     /*El manejador de la descripción*/
-    const handleDescription = async (event) => {
+    const handleDescription = (event) => {
         setDescription(event.target.value)
     }
 
@@ -74,23 +73,18 @@ const Dashboard = () => {
         const newProduct = { name, price, description }
         //Guardar en la base de datos al nuevo producto
         //Esta función es asyncrona
-        createProduct(newProduct)
+        try {
+            await createProduct(newProduct)
+            setMessage("Producto agregado con éxito")
+            setName("")
+            setPrice(0)
+            setDescription("")
+        } catch (error) {
+            setError(error.message)
+        }
 
-        /*
-        console.log("Nuevo producto:", newProduct)
-        setProductos([...productosRef, newProduct])
-        localStorage.setItem("productos", JSON.stringify([...productos, newProduct]))*/
-
-
-        //Tomo el setName y lo limpio
-        setName("")
-        //Tomo el setPrice y lo limpio
-        setPrice(0)
-        //Tomo el setDescription y tb lo limpio
-        setDescription("")
     }
 
-    //CORREGIR URGENTE
     useEffect(() => {
 
         if (name && price && description) {
@@ -124,6 +118,7 @@ const Dashboard = () => {
 
                         <button disabled={isDisabled} style={{ backgroundColor: isDisabled && "green", cursor: isDisabled && "not-allowed" }}>Agregar producto</button>
                         {error && <p style={{ color: "brown" }}>{error}</p>}
+                        {message && <p style={{ color: "green" }}>{message}</p>}
 
                     </form>
                 </section>

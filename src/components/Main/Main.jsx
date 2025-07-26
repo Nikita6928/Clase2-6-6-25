@@ -1,14 +1,15 @@
 import { useEffect, useState } from 'react'
 import './Main.css'
+import { Link } from "react-router-dom"
 import { db } from "../../config/firebase"
 import { collection, getDocs } from 'firebase/firestore'
 
 
 const Main = () => {
 
-   const [productos, setProductos] = useState("")
+   const [productos, setProductos] = useState([])
    const [error, setError] = useState(null)
-   const [user, setUser] = useState("")
+   const [user, setUser] = useState(true)
    //Creo una función asincrónica.  Fetching significa que trae el producto
    //Async, significa que traerá los productos cuando estén disponibles
    /*Una función async me devuelve un resultado, puede ser positivo o negativo
@@ -19,6 +20,7 @@ const Main = () => {
       const snapshot = await getDocs(productosRef)
       const docs = snapshot.docs.map((doc) => doc.data())
       setProductos(docs)
+      console.log(docs)
    }
    useEffect(() => {
       fetchingProduct()
@@ -26,7 +28,7 @@ const Main = () => {
    el Array, el código se ejecutará infinitamente.  El array es la segunda condición que 
    pide el useEffect*/
 
-   //Simulando una lista de productos recibida desde una API//
+
 
 
    //Ahora voy a crear el array//
@@ -80,12 +82,14 @@ const Main = () => {
             <h1> Viajá por Argentina</h1>
             <h2>El país de los 5 continentes</h2>
          </section>
+
          <section className="productsList">
             {
 
                producto.map((producto, index) => {
                   return (
                      <>
+
                         <div className="products">
 
                            <h2>{producto.nombre}</h2>
@@ -99,12 +103,9 @@ const Main = () => {
                                  <button>Borrar</button>
                               </div>
                            }
-
                            <p><button>Comprar Paquete</button></p>
 
                         </div >
-
-
                      </>
                   )
 
