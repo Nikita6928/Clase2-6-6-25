@@ -19,8 +19,9 @@ const Main = () => {
 
       const snapshot = await getDocs(productosRef)
       const docs = snapshot.docs.map((doc) => doc.data())
-      setProductos(docs)
       console.log(docs)
+      setProductos(docs)
+
    }
    useEffect(() => {
       fetchingProduct()
@@ -86,7 +87,7 @@ const Main = () => {
          <section className="productsList">
             {
 
-               producto.map((producto, index) => {
+               productos.map((producto, index) => {
                   return (
                      <>
 

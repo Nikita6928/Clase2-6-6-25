@@ -12,7 +12,6 @@ import { collection, addDoc, doc } from "firebase/firestore"
 
 const Dashboard = () => {
 
-    console.log("Renderizando Dashboard")
     const [name, setName] = useState("")
     const [price, setPrice] = useState(0)
     const [description, setDescription] = useState("")

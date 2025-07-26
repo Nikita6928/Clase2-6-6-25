@@ -11,18 +11,14 @@ function Home() {
 
   return (
     <>
- 
-{/*Rederizar el Header */}
-<Header />
-{/*Renderizr el Main */}
-<Main />
 
-{/*Renderizar el Footer */}
- <Footer />
-
- 
-
-</>
+      {/*Rederizar el Header */}
+      <Header />
+      {/*Renderizr el Main */}
+      <Main />
+      {/*Renderizar el Footer */}
+      <Footer />
+    </>
   )
 }
 
