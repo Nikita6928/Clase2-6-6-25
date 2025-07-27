@@ -10,10 +10,7 @@ const Main = () => {
    const [productos, setProductos] = useState([])
    const [error, setError] = useState(null)
    const [user, setUser] = useState(true)
-   //Creo una función asincrónica.  Fetching significa que trae el producto
-   //Async, significa que traerá los productos cuando estén disponibles
-   /*Una función async me devuelve un resultado, puede ser positivo o negativo
-   pero no deja de ser un resultado, esperado o no*/
+
    const fetchingProduct = async () => {
       const productosRef = collection(db, "productos")
 

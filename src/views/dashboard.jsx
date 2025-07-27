@@ -17,7 +17,7 @@ const Dashboard = () => {
     const [description, setDescription] = useState("")
     //Creo un estado, para manejar un error
     const [error, setError] = useState(null)
-    const [isDisabled, setIsDisabled] = useState(false)
+    const [isDisabled, setIsDisabled] = useState(true)
     const [message, setMessage] = useState("")
 
     //Referencia a la colección de productos en firestore
