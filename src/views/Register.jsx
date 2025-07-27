@@ -6,6 +6,7 @@ import Footer from "../components/Footer/Footer"*/
 import { useState, useEffect } from "react"
 import Layout from "../components/Layout/Layout"
 import "../styles/Register.css"
+import { createUserWithEmailAndPassword } from "firebase/auth"
 
 
 const Register = () => {
@@ -14,6 +15,8 @@ const Register = () => {
     const [surname, setSurname] = useState("")
     const [email, setEMail] = useState("")
     const [passwoord, setPassword] = useState("")
+    const [error, setError] = useState(null)
+
     //Estado para el mensaje al usuario registrado
     const [message, setMessage] = useState("")
     //El manejador del evento name
@@ -36,32 +39,63 @@ const Register = () => {
     const handleMessage = (event) => {
         setMessage(event.target.value)
     }
-    useEffect(() => {
+    const handleSubmit = async (e) => {
+        e.preventDefault()
+        setError(null)
+        setMessage(null)
+
+        if (!email || !passwoord) {
+            setError("Debes completar los campos...")
+            return
+        }
+        //Intentar registrar o guardar un usuario. Se utiliza try y catch, cuando la función es async
+        try {
+            await createUserWithEmailAndPassword(auth, email, passwoord)
+            setMessage("Usuario registrado con éxito....")
+        } catch (error) {
+            setError(error.message)
+        }
+
+
+
+    }
+    /*useEffect(() => {
         if (name && surname && email && password && message) {
             setMessage('Felicitaciones¡¡¡ te has registrado perfectamente')
         } else {
             setMessage('Te falta rellenar algún campo requerido o algún error')
         }
-    })
+    })*/
     return (
         <Layout>
             <section id="register-section">
                 <h1>Regístrate</h1>
-                <form>
+                <form onSubmit={handleSubmit}>
                     <label htmlFor="name">Ingresa tu nombre</label>
                     <input type="text" name="name" id="name" onChange={handleName} />
                     <label htmlFor="surname">Ingresa tu apellido</label>
                     <input type="text" name="name" id="surname" onChange={handleSurname} />
                     <label htmlFor="email">Correo electrónico</label>
-                    <input type="email" name="email" id="email" onChange={handleEmail} />
+                    <input
+                        type="email"
+                        name="email"
+                        id="email"
+                        onChange={(e) =>
+                            setEMail(e.target.value)} />
 
 
                     <label htmlFor="password">Contraseña:</label>
-                    <input type="password" name="password" id="password" onChange={handlePassword} />
+                    <input
+                        type="password"
+                        name="password"
+                        id="password"
+                        onChange={(e) =>
+                            setPassword(e.target.value)
+                        } />
                     <button>Registrarse</button>
-                    <h2>{handleMessage}</h2>
                 </form>
-
+                <h5 className="error-message">{error}</h5>
+                <h5 className="success-message">{message}</h5>
             </section>
         </Layout>
     )

@@ -63,3 +63,13 @@ label {
 form button {
     background-color: rgb(183, 183, 95);
 }
+
+.error-message {
+    text-align: center;
+    color: rgb(165, 67, 67);
+}
+
+.success-message {
+    text-align: center;
+    color: rgb(81, 201, 81);
+}
