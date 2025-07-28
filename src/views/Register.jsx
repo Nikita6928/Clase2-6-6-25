@@ -7,6 +7,8 @@ import { useState, useEffect } from "react"
 import Layout from "../components/Layout/Layout"
 import "../styles/Register.css"
 import { createUserWithEmailAndPassword } from "firebase/auth"
+import { auth } from "../config/firebase"
+import { useNavigate } from "react-router-dom"
 
 
 const Register = () => {
@@ -16,6 +18,8 @@ const Register = () => {
     const [email, setEMail] = useState("")
     const [passwoord, setPassword] = useState("")
     const [error, setError] = useState(null)
+
+    const navigate = useNavigate()
 
     //Estado para el mensaje al usuario registrado
     const [message, setMessage] = useState("")
@@ -52,6 +56,14 @@ const Register = () => {
         try {
             await createUserWithEmailAndPassword(auth, email, passwoord)
             setMessage("Usuario registrado con éxito....")
+            setEMail("")
+            setPassword("")
+            setTimeout(() => {
+                setMessage("Redirigiendo al Home...")
+            }, 2000)
+            setTimeout(() => {
+                navigate("/")
+            }, 3000)
         } catch (error) {
             setError(error.message)
         }
