@@ -52,6 +52,7 @@ const Dashboard = () => {
         event.preventDefault()
         setError("")
 
+
         //Validaciones. Si no hay nombre o si no hay precio o si no hay description
         if (!name || !price || !description) {
             setError("Necesita completar los campos")
@@ -78,6 +79,7 @@ const Dashboard = () => {
             setName("")
             setPrice(0)
             setDescription("")
+
         } catch (error) {
             setError(error.message)
         }

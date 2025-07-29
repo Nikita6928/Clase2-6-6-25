@@ -2,8 +2,8 @@
 import Footer from "../components/Footer/Footer"*/
 import Layout from "../components/Layout/Layout"
 import { useState } from "react"
-import { signInWithEmailAndPassword } from "firebase/auth"
 import { auth } from "../config/firebase"
+import { signInWithEmailAndPassword } from "firebase/auth"
 import { useNavigate } from "react-router-dom"
 import "../styles/Login.css"
 
@@ -24,13 +24,14 @@ const Login = () => {
         setMessage(null)
 
 
+
         if (!email || !password) {
             setError("Debes completar los campos...")
             return
         }
         //Intentar registrar o guardar un usuario. Se utiliza try y catch, cuando la función es async
         try {
-            await signInWithEmailAndPassword(auth, email, password)
+            signInWithEmailAndPassword(auth, email, password)
             setMessage("Usuario logeado con éxito....")
             setEmail("")
             setPassword("")

@@ -1,8 +1,8 @@
-import { link } from "react-router-dom"
+import { Link } from "react-router-dom";
 import Layout from "../components/Layout/Layout"
 import { useState } from "react"
 
-const EDitViajes = () => {
+const EditProduct = () => {
 
     const [name, setName] = useState("")
     const [price, setPrice] = useState("")
@@ -94,4 +94,4 @@ const EDitViajes = () => {
 
     )
 }
-export { EDitViajes }
+export { EditProduct }
