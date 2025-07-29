@@ -16,13 +16,12 @@ const Register = () => {
     const [name, setName] = useState("")
     const [surname, setSurname] = useState("")
     const [email, setEMail] = useState("")
-    const [passwoord, setPassword] = useState("")
+    const [password, setPassword] = useState("")
     const [error, setError] = useState(null)
+    const [message, setMessage] = useState("")
 
     const navigate = useNavigate()
 
-    //Estado para el mensaje al usuario registrado
-    const [message, setMessage] = useState("")
     //El manejador del evento name
     const handleName = (event) => {
         setName(event.target.value)
@@ -48,13 +47,13 @@ const Register = () => {
         setError(null)
         setMessage(null)
 
-        if (!email || !passwoord) {
+        if (!email || !password) {
             setError("Debes completar los campos...")
             return
         }
         //Intentar registrar o guardar un usuario. Se utiliza try y catch, cuando la función es async
         try {
-            await createUserWithEmailAndPassword(auth, email, passwoord)
+            await createUserWithEmailAndPassword(auth, email, password)
             setMessage("Usuario registrado con éxito....")
             setEMail("")
             setPassword("")
@@ -71,13 +70,7 @@ const Register = () => {
 
 
     }
-    /*useEffect(() => {
-        if (name && surname && email && password && message) {
-            setMessage('Felicitaciones¡¡¡ te has registrado perfectamente')
-        } else {
-            setMessage('Te falta rellenar algún campo requerido o algún error')
-        }
-    })*/
+
     return (
         <Layout>
             <section id="register-section">

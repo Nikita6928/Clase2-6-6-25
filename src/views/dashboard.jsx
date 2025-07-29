@@ -5,10 +5,10 @@ import Header from "../components/Header/Header"
 import Footer from "../components/Footer/Footer"*/
 
 import Layout from "../components/Layout/Layout"
-import "../styles/Dashboard.css"
 import { useEffect, useState } from "react"
 import { db } from "../config/firebase"
 import { collection, addDoc, doc } from "firebase/firestore"
+import "../styles/Dashboard.css"
 
 const Dashboard = () => {
 
@@ -101,8 +101,7 @@ const Dashboard = () => {
             <section id="admin-section">
                 <h1>Panel de administración</h1>
                 <p>Aquí puedes administrar todos tus productos.  Puedes agregar, modificar o borrar
-                    lo que deseés
-                </p>
+                    lo que deseés</p>
 
                 <section className="admin-form-section">
                     <form onSubmit={handleSubmit}>
