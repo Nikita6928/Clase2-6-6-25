@@ -31,8 +31,8 @@ const Login = () => {
         }
         //Intentar registrar o guardar un usuario. Se utiliza try y catch, cuando la función es async
         try {
-            signInWithEmailAndPassword(auth, email, password)
-            setMessage("Usuario logeado con éxito....")
+            await
+                setMessage("Usuario logeado con éxito....")
             setEmail("")
             setPassword("")
             setTimeout(() => {
