@@ -67,7 +67,7 @@ const EditProduct = () => {
         <Layout>
             <section id="admin-section">
                 <h1>Panel de Administración</h1>
-                <p>Aquí puedes administrar todos tus productos.  Puedes agregar, modificar o borrar
+                <p>Aquí puedes administrar todos tus productos. Puedes agregar, modificar o borrar
                     lo que deseés
                 </p>
 
