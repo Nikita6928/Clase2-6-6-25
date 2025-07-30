@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react'
 import { db } from "../../config/firebase"
-import { collection, getDocs, doc } from 'firebase/firestore'
+import { collection, getDocs, doc, deleteDoc } from 'firebase/firestore'
 import { Link } from "react-router-dom"
+import { useAuth } from "../../context/AuthContext"
 import './Main.css'
 
 const Main = () => {
@@ -14,18 +15,14 @@ const Main = () => {
       const productosRef = collection(db, "productos")
 
       const snapshot = await getDocs(productosRef)
-      const docs = snapshot.docs.map((doc) => doc.data())
-      console.log(docs)
+      const docs = snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }))
       setProductos(docs)
-
    }
 
 
 
 
-   //Ahora voy a crear el array,que pasa si comento todo este array?//
-
-   const producto = [
+   /*const producto = [
       {
          id: 1,
          nombre: "Los Esteros del Iberá",
@@ -66,53 +63,73 @@ const Main = () => {
          descripcionCompleta: " A tan sólo 1.200 km de Buenos Aires, se encuentra el centro de ski número 1 de América Latina: Las Leñas.",
          sku: "lasle-4",
       },
-   ]
+   ]*/
    useEffect(() => {
-      //fetchingProduct()
+      fetchingProduct()
    }, [])
 
+   const handleDeleteProduct = async (id) => {
+      try {
+         if (confirm("Estás seguro de que deseas borrar el producto")) {
+            await deleteDoc(doc(db, "productos", id))
+            setProductos(productos.filter(p => p.id !== id))
+         }
+      } catch (error) {
+         console.log(error)
+         setError("Error al borrar el producto")
+      }
 
-   return (
-      <main>
-         <section className="banner">
-            <h1> Viajá por Argentina</h1>
-            <h2>El país de los 5 continentes</h2>
-         </section>
+      return (
+         <main>
+            <section className="banner">
+               <h1> Viajá por Argentina</h1>
+               <h2>El país de los 5 continentes</h2>
+            </section>
 
-         <section className="productsList">
-            {
+            <section className="productsList">
+               {
+                  error && <p>{error}</p>
+               }
+               {
+                  productos.length == 0 && !error && <p>No hay productos disponibles</p>
+               }
+               {
 
-               producto.map((producto, index) => {
-                  return (
-                     <>
-
-                        <div className="products">
-
-                           <h2>{producto.nombre}</h2>
-                           <img src={producto.imagen} alt={"imagen del producto" + producto.imagen} />
-                           <h2>Precio con descuento 20 % -</h2>{producto.precio}
-                           <h3>Descripción</h3>{producto.descripcion}
-                           <h3>Descripción Completa</h3>{producto.descripcionCompleta}
+                  productos.map((producto) => {
+                     return (
+                        <div className="product">
+                           <h2>{producto.name}</h2>
+                           <p>${producto.price}</p>
+                           <p>{producto.description}</p>
                            {
-                              user && <div className='user_buttons'>
-                                 <button>Actualizar</button>
-                                 <button>Borrar</button>
+
+                              user && <>
+                                 <div>
+                                    {producto.createdAt && <p>Producto creado:{new Date(producto.createdAt).toLocalString()}</p>}
+                                    {producto.createdAt !== producto.updateAt && <p><strong>Ultima actualización:</strong> {new Date(producto.updateAt).toLocalString()}</p>}
+                                 </div>
+
+
+                                 <div className='user-buttons'>
+                                    <Link to={/editar-producto/${producto.id}}>Editar producto</Link>
+                                 <button onClick={() =>
+                                    handleDeleteProduct(producto.id)}>Borrar</button>
                               </div>
-                           }
-                           <p><button>Comprar Paquete</button></p>
-
+                        </>
+                         }
+                         <button>Comprar</button>
                         </div >
-                     </>
-                  )
 
-               })
+            )   
 
-            }
+                  })
+
+               }
          </section>
-      </main >
+         </main >
 
-   )
+      )
 
-}
+   }
 
 export default Main
