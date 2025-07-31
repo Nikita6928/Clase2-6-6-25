@@ -1,12 +1,12 @@
 import "./Header.css"
 import { Link } from "react-router-dom"
-import { useState } from "react"
+import { useAuth } from "../../context/AuthContext"
 
 const Header = () => {
-  const [user, setUser] = useState(true)
+  const { user, logout } = useAuth()
 
   const handleLogout = () => {
-    setUser(false)
+    logout()
   }
   return (
     <header>

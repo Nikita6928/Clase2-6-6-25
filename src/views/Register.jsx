@@ -9,6 +9,7 @@ import "../styles/Register.css"
 import { createUserWithEmailAndPassword } from "firebase/auth"
 import { auth } from "../config/firebase"
 import { useNavigate } from "react-router-dom"
+import { useAuth } from "../context/AuthContext"
 
 
 const Register = () => {
@@ -21,6 +22,7 @@ const Register = () => {
     const [message, setMessage] = useState("")
 
     const navigate = useNavigate()
+    const { register } = useAuth()
 
     //El manejador del evento name
     const handleName = (event) => {
@@ -53,7 +55,7 @@ const Register = () => {
         }
         //Intentar registrar o guardar un usuario. Se utiliza try y catch, cuando la función es async
         try {
-            await createUserWithEmailAndPassword(auth, email, password)
+            await register(email, password)
             setMessage("Usuario registrado con éxito....")
             setEMail("")
             setPassword("")

@@ -30,12 +30,6 @@ const Login = () => {
         }
         //Intentar registrar o guardar un usuario. Se utiliza try y catch, cuando la función es async
         try {
-
-            console.log("Email", email)
-            console.log("Pasword", password)
-
-
-
             await login(email, password)
             setMessage("Usuario logeado con éxito....")
             setEmail("")
@@ -77,7 +71,7 @@ const Login = () => {
                             onChange={(e) =>
                                 setPassword(e.target.value)
                             } />
-                        <button type="submit">Registrarse</button>
+                        <button>Registrarse</button>
                     </form>
                     <h5 className="error-message">{error}</h5>
                     <h5 className="success-message">{message}</h5>
