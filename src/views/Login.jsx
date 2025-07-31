@@ -24,13 +24,18 @@ const Login = () => {
         setMessage(null)
 
 
-
         if (!email || !password) {
             setError("Debes completar los campos...")
             return
         }
         //Intentar registrar o guardar un usuario. Se utiliza try y catch, cuando la función es async
         try {
+
+            console.log("Email", email)
+            console.log("Pasword", password)
+
+
+
             await login(email, password)
             setMessage("Usuario logeado con éxito....")
             setEmail("")
@@ -41,6 +46,8 @@ const Login = () => {
             setTimeout(() => {
                 navigate("/")
             }, 3000)
+
+
         } catch (error) {
             setError(error.message)
         }
@@ -70,7 +77,7 @@ const Login = () => {
                             onChange={(e) =>
                                 setPassword(e.target.value)
                             } />
-                        <button>Registrarse</button>
+                        <button type="submit">Registrarse</button>
                     </form>
                     <h5 className="error-message">{error}</h5>
                     <h5 className="success-message">{message}</h5>
