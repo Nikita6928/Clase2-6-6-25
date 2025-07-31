@@ -9,6 +9,7 @@ import { useEffect, useState } from "react"
 import { db } from "../config/firebase"
 import { collection, addDoc, doc } from "firebase/firestore"
 import "../styles/Dashboard.css"
+import { Link, useNavigate } from "react-router-dom"
 
 const Dashboard = () => {
 
@@ -19,12 +20,19 @@ const Dashboard = () => {
     const [error, setError] = useState(null)
     const [isDisabled, setIsDisabled] = useState(true)
     const [message, setMessage] = useState("")
+    const [success, setSuccess] = useState(false)
+
+    const navigate = useNavigate()
 
     //Referencia a la colección de productos en firestore
-    const productosRef = collection(db, "producto")
+    const productosRef = collection(db, "productos")
 
     //Función para agregar un producto en firestore
     const createProduct = async (productData) => {
+        const createdAt = Date.now()
+        const updateAt = Date.now()
+
+        console.log(createdAt, updateAt)
         try {
             const productRef = await addDoc(productosRef, productData)
             return productRef
@@ -51,6 +59,7 @@ const Dashboard = () => {
     const handleSubmit = async (event) => {
         event.preventDefault()
         setError("")
+        setSuccess(false)
 
 
         //Validaciones. Si no hay nombre o si no hay precio o si no hay description
@@ -79,6 +88,8 @@ const Dashboard = () => {
             setName("")
             setPrice(0)
             setDescription("")
+            //Validar envío con éxito para mostrar link de dirección al home
+            setSuccess(true)
 
         } catch (error) {
             setError(error.message)
@@ -116,9 +127,10 @@ const Dashboard = () => {
                         <label htmlFor="description">Descripción del producto:</label>
                         <textarea name="description" id="description" onChange={handleDescription} value={description}></textarea>
 
-                        <button disabled={isDisabled} style={{ backgroundColor: isDisabled && "green", cursor: isDisabled && "not-allowed" }}>Agregar producto</button>
-                        {error && <p style={{ color: "brown" }}>{error}</p>}
+                        <button disabled={isDisabled}>Agregar producto</button>
+                        {error && <p style={{ color: "red" }}>{error}</p>}
                         {message && <p style={{ color: "green" }}>{message}</p>}
+                        {success && <Link to={"/"}>Ir a home</Link>}
 
                     </form>
                 </section>

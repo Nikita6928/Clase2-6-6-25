@@ -1,6 +1,7 @@
-import { Link } from "react-router-dom"
+import { Link, useNavigate, useParams } from "react-router-dom"
 import Layout from "../components/Layout/Layout"
-import { useState } from "react"
+import { useState, useEffect } from "react"
+import { doc, getDocs, updateDoc } from "firebase/firestore"
 
 const EditProduct = () => {
 
@@ -8,9 +9,15 @@ const EditProduct = () => {
     const [price, setPrice] = useState("")
     const [description, setDescription] = useState("")
     const [sku, setSku] = useState("")
+    const [error, setError] = useState("null")
+    const [message, setMessage] = useState("")
+    const [sucess, setSucess] = useState(false)
+    const navigate = useNavigate()
+
+    const { id } = useParams()
 
 
-    const handleName = (event) => {
+    /*const handleName = (event) => {
         setName(event.target.value)
     }
 
@@ -24,7 +31,7 @@ const EditProduct = () => {
 
     const handleSku = (e) => {
         setSku(e.target.value)
-    }
+    }*/
 
     //Manejador del envío del formulario
     const handleSubmit = async (event) => {
