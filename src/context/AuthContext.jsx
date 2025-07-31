@@ -1,12 +1,12 @@
-import { createContext, useEffect, useState } from "react"
+import { createContext, useState } from "react"
 import { auth } from "../config/firebase"
+import { signInWithEmailAndPassword } from "firebase/auth"
 import { useContext } from "react"
-import { signInWithEmailAndPassword, createUserWithEmailAndPassword, onAuthStateChanged, signOut } from "firebase/auth"
 
 
 const AuthContext = createContext()
 
-const AuthProvider = () => {
+const AuthProvider = ({ children }) => {
     const [user, setUser] = useState()
 
     //Login
@@ -17,10 +17,11 @@ const AuthProvider = () => {
     //Logout
 
     return (
-        <AuthContext.Provider value={login}>
-
+        <AuthContext.Provider value={{ login }}>
+            {children}
         </AuthContext.Provider>
     )
 }
 
-export { AuthContext }
+const useAuth = () => useContext(AuthContext)
+export { AuthContext, AuthProvider, useAuth }
