@@ -1,4 +1,15 @@
-.user_buttons button {
-    background-color: rgb(126, 99, 31);
-    color: #000;
+.user_buttons button,
+.user_buttons a {
+    padding: 5px 10px;
+    display: inline-block;
+    width: 100%;
+    margin-top: 10px;
+    border: double;
+    border-radius: 10px;
+    color: white;
+    cursor: pointer;
+    transition: transform 0.3s;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: transparent;
 }

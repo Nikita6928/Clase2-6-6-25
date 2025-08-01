@@ -1,7 +1,8 @@
 import { Link, useNavigate, useParams } from "react-router-dom"
 import Layout from "../components/Layout/Layout"
 import { useState, useEffect } from "react"
-import { doc, getDocs, updateDoc } from "firebase/firestore"
+import { doc, getDoc, updateDoc } from "firebase/firestore"
+import { db } from "../config/firebase"
 
 const EditProduct = () => {
 
@@ -17,7 +18,28 @@ const EditProduct = () => {
     const { id } = useParams()
 
 
-    /*const handleName = (event) => {
+    const fetchProduct = async (id) => {
+        try {
+            const docRef = doc(db, "productos", id)
+            const docSnap = await getDoc(docRef)
+            if (docSnap.exists()) {
+                const data = docSnap.data()
+                setName(data.name)
+                setPrice(data.price)
+                setDescription(data.description)
+                setSku(data.sku)
+            }
+        } catch (error) {
+            setError("Error al cargar el producto")
+        }
+    }
+
+    useEffect(() => {
+        fetchProduct(id)
+    }, [id])
+
+
+    const handleName = (event) => {
         setName(event.target.value)
     }
 
@@ -31,7 +53,9 @@ const EditProduct = () => {
 
     const handleSku = (e) => {
         setSku(e.target.value)
-    }*/
+    }
+
+
 
     //Manejador del envío del formulario
     const handleSubmit = async (event) => {
@@ -55,6 +79,13 @@ const EditProduct = () => {
             setError("debes agregar un precio mayor a 0")
             return
         }
+        try {
+            const docRef = doc(db, "productos", id)
+            await updateDoc(docRef, { name, price, description, updateAt: Date.now() })
+            navigate("/")
+        } catch (error) {
+            setError("Error al actualizar el producto")
+        }
 
         //Tomo el setName y lo limpio
         setName("")
@@ -63,22 +94,22 @@ const EditProduct = () => {
         //Tomo el setDescription y tb lo limpio
         setDescription("")
 
-        useEffect(() => {
-            [name, price, description]
-            if (name && price && description)
-                setIsDisabled(false)
-        },)
+        /* useEffect(() => {
+             [name, price, description]
+             if (name && price && description)
+                 setIsDisabled(false)
+         },)*/
     }
 
     return (
         <Layout>
-            <section id="admin-section">
+            <section id="admin-sectionn">
                 <h1>Panel de Administración</h1>
                 <p>Aquí puedes administrar todos tus productos. Puedes agregar, modificar o borrar
                     lo que deseés
                 </p>
 
-                <section className="admin-form-section">
+                <section className="admin-form-sectionn">
                     <form onSubmit={handleSubmit}>
                         <label htmlFor="name">Nombre del producto:</label>
                         <input type="text" name="name" id="name" onChange={handleName} value={name} />

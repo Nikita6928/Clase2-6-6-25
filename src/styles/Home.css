@@ -41,7 +41,7 @@ main .productsList {
 }
 
 .productsList .products {
-  background-color: rgb(211, 146, 7);
+  background-color: rgb(119, 86, 13);
   padding: 20px;
   gap: 30px;
 }
@@ -70,4 +70,19 @@ footer {
   padding: 20 px;
   text-align: center;
   font-weight: 700;
+}
+
+.products .user_buttons {
+  padding: 5px 10px;
+  display: inline-block;
+  width: 100%;
+  margin-top: 10px;
+  border: double;
+  border-radius: 10px;
+  background-color: rgb(214, 125, 16);
+  color: rgb(52, 45, 19);
+  cursor: pointer;
+  transition: transform 0.3s;
+  border-color: black;
+  font-weight: bold;
 }

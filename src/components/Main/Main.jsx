@@ -105,9 +105,9 @@ const Main = () => {
                productos.map((producto) => {
                   return (
                      <div className="products">
-                        <h2>{producto.name}</h2>
-                        <p>${producto.price}</p>
-                        <p>{producto.description}</p>
+                        <h2>Nombre:{producto.name}</h2>
+                        <h4>Precio:{producto.price}</h4>
+                        <h4>Descripción:{producto.description}</h4>
                         {
 
 
@@ -118,8 +118,9 @@ const Main = () => {
                               </div>
 
 
-                              <div className="user-buttons">
+                              <div className="user_buttons">
                                  <Link to={`/editar-producto/${producto.id}`}>Editar producto</Link>
+                                 <button>Actualizar</button>
                                  <button onClick={() =>
                                     handleDeleteProduct(producto.id)}>Borrar</button>
 
