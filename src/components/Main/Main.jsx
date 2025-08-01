@@ -93,7 +93,7 @@ const Main = () => {
             <h2>El país de los 5 continentes</h2>
          </section>
 
-         <section className="productList">
+         <section className="productsList">
             {
                error && <p>{error}</p>
             }
@@ -104,7 +104,7 @@ const Main = () => {
 
                productos.map((producto) => {
                   return (
-                     <div className="product">
+                     <div className="products">
                         <h2>{producto.name}</h2>
                         <p>${producto.price}</p>
                         <p>{producto.description}</p>
@@ -122,6 +122,7 @@ const Main = () => {
                                  <Link to={`/editar-producto/${producto.id}`}>Editar producto</Link>
                                  <button onClick={() =>
                                     handleDeleteProduct(producto.id)}>Borrar</button>
+
                               </div>
                            </>
                         }

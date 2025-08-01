@@ -90,6 +90,16 @@ const Dashboard = () => {
             setDescription("")
             //Validar envío con éxito para mostrar link de dirección al home
             setSuccess(true)
+            //ver que sucede-FUNCIONÓ
+            setTimeout(() => {
+                setMessage("Redirigiendo al Home..")
+            }, 2000)
+            setTimeout(() => {
+                navigate("/")
+            }, 3000)
+            //Hasta aquí
+
+
 
         } catch (error) {
             setError(error.message)
@@ -127,10 +137,10 @@ const Dashboard = () => {
                         <label htmlFor="description">Descripción del producto:</label>
                         <textarea name="description" id="description" onChange={handleDescription} value={description}></textarea>
 
-                        <button disabled={isDisabled}>Agregar producto</button>
+                        <button disabled={isDisabled} style={{ backgroundColor: isDisabled && "green", cursor: isDisabled && "not-allowed" }}>Agregar producto</button>
                         {error && <p style={{ color: "red" }}>{error}</p>}
                         {message && <p style={{ color: "green" }}>{message}</p>}
-                        {success && <Link to={"/"}>Ir a home</Link>}
+                        {/*success && <Link to={"Home"}>Ir a home</Link>*/}
 
                     </form>
                 </section>

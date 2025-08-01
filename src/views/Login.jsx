@@ -71,7 +71,7 @@ const Login = () => {
                             onChange={(e) =>
                                 setPassword(e.target.value)
                             } />
-                        <button>Registrarse</button>
+                        <button>Registrarme</button>
                     </form>
                     <h5 className="error-message">{error}</h5>
                     <h5 className="success-message">{message}</h5>
