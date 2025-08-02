@@ -17,12 +17,12 @@
     font-weight: bold;
 }
 
-#admin-section form * {
+/*#admin-section form * {
     width: 50%;
     margin: auto;
     background-color: rgb(202, 162, 20);
     padding: 20px;
-}
+}*/
 
 #admin-section form * {
     display: block;

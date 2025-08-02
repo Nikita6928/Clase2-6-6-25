@@ -16,6 +16,7 @@ const Dashboard = () => {
     const [name, setName] = useState("")
     const [price, setPrice] = useState(0)
     const [description, setDescription] = useState("")
+    const [sku, setSku] = useState("")
     //Creo un estado, para manejar un error
     const [error, setError] = useState(null)
     const [isDisabled, setIsDisabled] = useState(true)
@@ -54,6 +55,10 @@ const Dashboard = () => {
     const handleDescription = (event) => {
         setDescription(event.target.value)
     }
+    /*El manejador del sku */
+    const handleSku = (event) => {
+        setSku(event.target.value)
+    }
 
     //Manejador del envío del formulario
     const handleSubmit = async (event) => {
@@ -62,8 +67,8 @@ const Dashboard = () => {
         setSuccess(false)
 
 
-        //Validaciones. Si no hay nombre o si no hay precio o si no hay description
-        if (!name || !price || !description) {
+        //Validaciones. Si no hay nombre o si no hay precio o si no hay sku
+        if (!name || !description || !price || !sku) {
             setError("Necesita completar los campos")
             return
         }
@@ -79,7 +84,7 @@ const Dashboard = () => {
         }
 
         //Creo el objeto para el nuevo producto
-        const newProduct = { name, price, description }
+        const newProduct = { name, price, description, sku }
         //Guardar en la base de datos al nuevo producto
         //Esta función es asyncrona
         try {
@@ -88,6 +93,7 @@ const Dashboard = () => {
             setName("")
             setPrice(0)
             setDescription("")
+            setSku("")
             //Validar envío con éxito para mostrar link de dirección al home
             setSuccess(true)
             //ver que sucede-FUNCIONÓ
@@ -109,14 +115,14 @@ const Dashboard = () => {
 
     useEffect(() => {
 
-        if (name && price && description) {
+        if (name && price && sku) {
             setIsDisabled(false)
         } else {
             setIsDisabled(true)
         }
 
 
-    }, [name, price, description])
+    }, [name, price, sku])
 
     return (
 
@@ -136,6 +142,10 @@ const Dashboard = () => {
 
                         <label htmlFor="description">Descripción del producto:</label>
                         <textarea name="description" id="description" onChange={handleDescription} value={description}></textarea>
+
+                        <label htmlFor="sku">Sku:</label>
+                        <textarea name="sku" id="sku" onChange={handleSku} value={sku}></textarea>
+
 
                         <button disabled={isDisabled} style={{ backgroundColor: isDisabled && "green", cursor: isDisabled && "not-allowed" }}>Agregar producto</button>
                         {error && <p style={{ color: "red" }}>{error}</p>}

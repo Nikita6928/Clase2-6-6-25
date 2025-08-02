@@ -5,7 +5,7 @@ body {
 #register-section {
     padding: 20px;
     min-height: 100vh;
-    width: 400px;
+    width: 600px;
 
 }
 
@@ -51,17 +51,17 @@ body {
     padding: 20px;
 }
 
-#register-section form * {
+/*#register-section form * {
     display: block;
     width: 100%;
-}
+}*/
 
 label {
     color: black;
 }
 
 form button {
-    background-color: rgb(183, 183, 95);
+    background-color: rgb(122, 122, 9);
 }
 
 .error-message {
@@ -71,5 +71,5 @@ form button {
 
 .success-message {
     text-align: center;
-    color: rgb(81, 201, 81);
+    color: rgb(17, 39, 17);
 }
